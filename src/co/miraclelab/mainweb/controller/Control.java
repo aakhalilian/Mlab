@@ -58,4 +58,9 @@ public class Control extends MainControl {
 		return "contact";
 	}
 	
+	@RequestMapping(value = { "/contact" }, method = RequestMethod.POST)
+	public String contactPageResponse(Model model) throws IOException {
+		return "redirect:/main";
+	}
+	
 }

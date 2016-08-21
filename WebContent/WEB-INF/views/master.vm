@@ -30,7 +30,7 @@
 	#foreach($myPanel in $layoutService.getPanels())
 		#parse($myPanel.path())
 	#end
-	$layoutService.up(2)
+	$layoutService.up(2) 
 	
   </body>
 </html>

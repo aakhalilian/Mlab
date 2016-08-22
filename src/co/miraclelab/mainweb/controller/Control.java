@@ -34,7 +34,7 @@ public class Control extends MainControl {
 				request, response);
 	}
 
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/" }, method = RequestMethod.GET) 
 	public String redirectToMain() throws IOException {
 		return "redirect:/main";
 	}

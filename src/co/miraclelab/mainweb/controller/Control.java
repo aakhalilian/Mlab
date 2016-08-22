@@ -29,6 +29,7 @@ public class Control extends MainControl {
 	public Control(AppProperties properties, ServletContext servletContext, LogService logService,
 			EncryptService encryptService, XMLService xmlService, MailService mailService, MongoService mongoService,
 			LayoutService layoutService, HttpServletRequest request, HttpServletResponse response) {
+		
 		super(properties, servletContext, logService, encryptService, xmlService, mailService, mongoService, layoutService,
 				request, response);
 	}

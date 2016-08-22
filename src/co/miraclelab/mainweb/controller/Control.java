@@ -18,19 +18,21 @@ import co.miraclelab.webframe.layoutservice.LayoutService;
 import co.miraclelab.webframe.utilities.LogService;
 import co.miraclelab.webframe.utilities.MongoService;
 import co.miraclelab.webframe.utilities.AppProperties;
+import co.miraclelab.webframe.utilities.EncryptService;
 import co.miraclelab.webframe.utilities.ServiceAccessor;
 import co.miraclelab.webframe.utilities.XMLService;
 import co.miraclelab.webframe.utilities.MailService;
 
 @Controller
 public class Control extends MainControl {
-
-	public Control(AppProperties properties, ServletContext servletContext, LogService logService, XMLService xmlService,
-			MongoService mongoService, MailService mailService, LayoutService layoutService, HttpServletRequest request,
-			HttpServletResponse response) {
-		super(properties, servletContext, logService, xmlService, mailService, mongoService, layoutService, request, response);
-	} 
 	
+	public Control(AppProperties properties, ServletContext servletContext, LogService logService,
+			EncryptService encryptService, XMLService xmlService, MailService mailService, MongoService mongoService,
+			LayoutService layoutService, HttpServletRequest request, HttpServletResponse response) {
+		super(properties, servletContext, logService, encryptService, xmlService, mailService, mongoService, layoutService,
+				request, response);
+	}
+
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String redirectToMain() throws IOException {
 		return "redirect:/main";

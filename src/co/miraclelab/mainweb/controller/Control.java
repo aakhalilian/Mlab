@@ -28,8 +28,7 @@ public class Control extends MainControl {
 	
 	public Control(AppProperties properties, ServletContext servletContext, LogService logService,
 			EncryptService encryptService, XMLService xmlService, MailService mailService, MongoService mongoService,
-			LayoutService layoutService, HttpServletRequest request, HttpServletResponse response) {
-		
+			LayoutService layoutService, HttpServletRequest request, HttpServletResponse response) {		
 		super(properties, servletContext, logService, encryptService, xmlService, mailService, mongoService, layoutService,
 				request, response);
 	}
@@ -63,6 +62,11 @@ public class Control extends MainControl {
 	
 	@RequestMapping(value = { "/contact" }, method = RequestMethod.POST)
 	public String contactPageResponse(Model model) throws IOException {
+		try {
+			mailService.sendMail("amirarsalankhalilian@gmail.com", request.getParameter("subject"), request.getParameter("body"));
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
 		return "redirect:/main";
 	}
 	

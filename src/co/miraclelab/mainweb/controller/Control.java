@@ -76,6 +76,7 @@ public class Control extends MainControl {
 		VelocityContext context=new VelocityContext();
 		context.put("message", "HOLA it's a test again");
 		email.setContext(context);
+		email.renderEmail();
 		try {
 			mailService.sendMail(email);
 		} catch (MessagingException e) {

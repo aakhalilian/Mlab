@@ -1,6 +1,7 @@
 package co.miraclelab.mainweb.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.mail.MessagingException;
 import javax.servlet.ServletContext;
@@ -18,19 +19,21 @@ import co.miraclelab.webframe.layoutservice.LayoutService;
 import co.miraclelab.webframe.utilities.LogService;
 import co.miraclelab.webframe.utilities.MongoService;
 import co.miraclelab.webframe.utilities.AppProperties;
+import co.miraclelab.webframe.utilities.Email;
+import co.miraclelab.webframe.utilities.EmailService;
 import co.miraclelab.webframe.utilities.EncryptService;
 import co.miraclelab.webframe.utilities.ServiceAccessor;
 import co.miraclelab.webframe.utilities.XMLService;
-import co.miraclelab.webframe.utilities.MailService;
 
 @Controller
 public class Control extends MainControl {
 	
 	public Control(AppProperties properties, ServletContext servletContext, LogService logService,
-			EncryptService encryptService, XMLService xmlService, MailService mailService, MongoService mongoService,
+			EncryptService encryptService, XMLService xmlService, EmailService mailService, MongoService mongoService,
 			LayoutService layoutService, HttpServletRequest request, HttpServletResponse response) {		
 		super(properties, servletContext, logService, encryptService, xmlService, mailService, mongoService, layoutService,
 				request, response);
+		mailService.initMailService();
 	}
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET) 
@@ -62,8 +65,15 @@ public class Control extends MainControl {
 	
 	@RequestMapping(value = { "/contact" }, method = RequestMethod.POST)
 	public String contactPageResponse(Model model) throws IOException {
+		Email email=new Email();
+		ArrayList<String> rec=new ArrayList<String>();
+		rec.add("amirarsalankhalilian@gmail.com");
+		rec.add("akhalilian@outlook.com");
+		email.setReciepients(rec);
+		email.setSubject("test");
+		email.setBody("this is a test!");
 		try {
-			mailService.sendMail("amirarsalankhalilian@gmail.com", request.getParameter("subject"), request.getParameter("body"));
+			mailService.sendMail(email);
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}

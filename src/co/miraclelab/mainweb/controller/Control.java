@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.apache.velocity.VelocityContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,7 +72,10 @@ public class Control extends MainControl {
 		rec.add("akhalilian@outlook.com");
 		email.setReciepients(rec);
 		email.setSubject("test");
-		email.setBody("this is a test!");
+		email.setTemplate("contactRespond.vm");
+		VelocityContext context=new VelocityContext();
+		context.put("message", "HOLA it's a test again");
+		email.setContext(context);
 		try {
 			mailService.sendMail(email);
 		} catch (MessagingException e) {

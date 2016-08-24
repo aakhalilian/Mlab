@@ -1,5 +1,6 @@
 package co.miraclelab.mainweb.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.apache.velocity.VelocityContext;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,6 +73,12 @@ public class Control extends MainControl {
 		rec.add("amirarsalankhalilian@gmail.com");
 		rec.add("akhalilian@outlook.com");
 		email.setReciepients(rec);
+		
+		ArrayList<File> atta=new ArrayList<File>();
+		File img=new File("C:/Users/akhal/Desktop/IMG.jpg");
+		atta.add(img);
+		
+		email.setAttachments(atta);
 		email.setSubject("test");
 		email.setTemplate("contactRespond.vm");
 		VelocityContext context=new VelocityContext();

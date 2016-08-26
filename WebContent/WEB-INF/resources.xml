@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-resource-service>
 	<web-resource key="main-resources" context="master">
-		<resource type="js" location="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" last-check="0" />
-		<resource type="js" location="js/bootstrap.min.js" last-check="0" />
-		<resource type="js" location="js/fix-height.js" last-check="0" />
-		<resource type="css" location="https://fonts.googleapis.com/css?family=Raleway:400,700" last-check="0" />
-		<resource type="less" location="less/bootstrap.less" last-check="0" />
+		<resource type="js" location="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
+		<resource type="js" location="https://use.fontawesome.com/6cd05efb2a.js"/>
+		<resource type="js" location="js/bootstrap.min.js"/>
+		<resource type="js" location="js/fix-height.js"/>
+		<resource type="css" location="https://fonts.googleapis.com/css?family=Raleway:400,700"/>
+		<resource type="less" location="less/bootstrap.less"/>
 	</web-resource>
 </web-resource-service>

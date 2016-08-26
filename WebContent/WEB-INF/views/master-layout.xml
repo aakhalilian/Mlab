@@ -22,13 +22,7 @@
 	<web-link location="master.top.navbar.right.agile" order="525" blank="false">
 		<link>#</link>
 		<label>Miracle Tools</label>
-	</web-link>
-	
-	<web-link location="master.top.navbar.right.agile" order="525" blank="false">
-		<link>#</link>
-		<label>Agile Principle</label>
-	</web-link>
-	
+	</web-link>	
 	
 	<web-link location="master.top.navbar.right" order="525" blank="false">
 		<link>about</link>

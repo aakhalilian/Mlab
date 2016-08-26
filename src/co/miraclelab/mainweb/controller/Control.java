@@ -70,18 +70,9 @@ public class Control extends MainControl {
 	public String contactPageResponse(Model model) throws IOException {
 		Email email=new Email();
 		ArrayList<String> rec=new ArrayList<String>();
-		rec.add("amirarsalankhalilian@gmail.com");
 		rec.add("akhalilian@outlook.com");
 		email.setReciepients(rec);
 		
-		ArrayList<File> atta=new ArrayList<File>();
-		File img=new File("C:/Users/akhal/Desktop/IMG.jpg");
-		atta.add(img);
-		
-		File text=new File("C:/Users/akhal/Desktop/1.txt");
-		atta.add(text);
-		
-		email.setAttachments(atta);
 		email.setSubject("test");
 		email.setTemplate("contactRespond.vm");
 		VelocityContext context=new VelocityContext();

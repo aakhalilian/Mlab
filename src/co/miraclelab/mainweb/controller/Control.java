@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.miraclelab.webframe.controller.MainControl;
 import co.miraclelab.webframe.layoutservice.LayoutService;
@@ -67,6 +68,7 @@ public class Control extends MainControl {
 	}
 	
 	@RequestMapping(value = { "/contact" }, method = RequestMethod.POST)
+	@ResponseBody
 	public String contactPageResponse() throws IOException {
 		try{
 			Email email=new Email();
@@ -84,17 +86,10 @@ public class Control extends MainControl {
 			email.renderEmail();
 			
 			mailService.sendMail(email);
-			return "redirect:/post/response/success";
+			return "success";
 		} catch (Throwable e) {
-			return "redirect:/post/response/error";
+			return "error";
 		}
 	}
-	@RequestMapping(value = { "/post/response/success" }, method = RequestMethod.GET)
-	public void responseSuccess() throws IOException {
-		response.getWriter().write("success");
-	}
-	@RequestMapping(value = { "/post/response/error" }, method = RequestMethod.GET)
-	public void responseError() throws IOException {
-		response.getWriter().write("error");
-	}
+	
 }

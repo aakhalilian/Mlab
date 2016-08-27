@@ -3,9 +3,13 @@
 	<web-resource key="main-resources" context="master">
 		<resource type="js" location="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>
 		<resource type="js" location="https://use.fontawesome.com/6cd05efb2a.js"/>
-		<resource type="js" location="js/bootstrap.min.js"/>
-		<resource type="js" location="js/fix-height.js"/>
 		<resource type="css" location="https://fonts.googleapis.com/css?family=Raleway:400,700"/>
+	</web-resource>
+	<web-resource key="bootstrap-resources" context="master">
+		<resource type="js" location="js/bootstrap.min.js"/>
 		<resource type="less" location="less/bootstrap.less"/>
+	</web-resource>
+	<web-resource key="mracle-js-library" context="master">
+		<resource type="js" location="js/fix-height.js"/>
 	</web-resource>
 </web-resource-service>

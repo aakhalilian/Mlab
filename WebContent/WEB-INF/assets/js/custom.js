@@ -5,13 +5,14 @@ $(document).ready(function(){
 		button.prop("disabled",true);
 		$.post("",
 		        {
-			email: relationTitle,
-			subject: relationDesc,
-			body: relationPhrase
+			email: $('form#contact-form input#inputEmail').val(),
+			subject: $('form#contact-form input#inputSubject').val(),
+			body: $('form#contact-form input#inputBody').val()
 		        },
 		        function(status){
 		            if(status=="success"){
 		            	$('form#contact-form').trigger("reset");
+		            	button.parent().append('<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>');
 		            	throwSuccess("Message Has been Sent!","<p>We will send you an email to confirm that we recieved your message!</p>");
 		            	button.prop("disabled",true);
 		            }
@@ -22,6 +23,7 @@ $(document).ready(function(){
 		            else
 		            	console.log(status);
 		});
+		button.parent().children('i').fadeut();
 	});
 })
 function throwError(title,messag){

@@ -67,7 +67,7 @@ public class Control extends MainControl {
 	}
 	
 	@RequestMapping(value = { "/contact" }, method = RequestMethod.POST)
-	public void contactPageResponse(Model model) throws IOException {
+	public void contactPageResponse() throws IOException {
 		try{
 			Email email=new Email();
 			ArrayList<String> rec=new ArrayList<String>();

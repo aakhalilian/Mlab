@@ -67,26 +67,27 @@ public class Control extends MainControl {
 	}
 	
 	@RequestMapping(value = { "/contact" }, method = RequestMethod.POST)
-	public String contactPageResponse(Model model) throws IOException {
-		Email email=new Email();
-		ArrayList<String> rec=new ArrayList<String>();
-		rec.add(request.getParameter("email"));
-		email.setReciepients(rec);
-		
-		email.setSubject(request.getParameter("subject"));
-		email.setTemplate("contactRespond.vm");
-		VelocityContext context=new VelocityContext();
-		context.put("message", request.getParameter("body"));
-		context.put("email", request.getParameter("email"));
-		
-		email.setContext(context);
-		email.renderEmail();
-		try {
+	public void contactPageResponse(Model model) throws IOException {
+		try{
+			Email email=new Email();
+			ArrayList<String> rec=new ArrayList<String>();
+			rec.add(request.getParameter("email"));
+			email.setReciepients(rec);
+			
+			email.setSubject(request.getParameter("subject"));
+			email.setTemplate("contactRespond.vm");
+			VelocityContext context=new VelocityContext();
+			context.put("message", request.getParameter("body"));
+			context.put("email", request.getParameter("email"));
+			
+			email.setContext(context);
+			email.renderEmail();
+			
 			mailService.sendMail(email);
-		} catch (MessagingException e) {
-			e.printStackTrace();
+			response.getWriter().write("success");
+		} catch (Throwable e) {
+			response.getWriter().write("error");
 		}
-		return "redirect:/main";
 	}
 	
 }

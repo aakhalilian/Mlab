@@ -67,7 +67,7 @@ public class Control extends MainControl {
 	}
 	
 	@RequestMapping(value = { "/contact" }, method = RequestMethod.POST)
-	public void contactPageResponse() throws IOException {
+	public String contactPageResponse() throws IOException {
 		try{
 			Email email=new Email();
 			ArrayList<String> rec=new ArrayList<String>();
@@ -84,10 +84,17 @@ public class Control extends MainControl {
 			email.renderEmail();
 			
 			mailService.sendMail(email);
-			response.getWriter().write("success");
+			return "redirect:/post/response/success";
 		} catch (Throwable e) {
-			response.getWriter().write("error");
+			return "redirect:/post/response/error";
 		}
 	}
-	
+	@RequestMapping(value = { "/post/response/success" }, method = RequestMethod.GET)
+	public void responseSuccess() throws IOException {
+		response.getWriter().write("success");
+	}
+	@RequestMapping(value = { "/post/response/error" }, method = RequestMethod.GET)
+	public void responseError() throws IOException {
+		response.getWriter().write("error");
+	}
 }

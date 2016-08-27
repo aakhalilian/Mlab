@@ -14,16 +14,17 @@ $(document).ready(function(){
 		            if(status=="success"){
 		            	$('form#contact-form').trigger("reset");
 		            	throwSuccess("Message Has been Sent!","<p>We will send you an email to confirm that we recieved your message!</p>");
-		            	button.prop("disabled",true);
+		            	button.prop("disabled",false);
+		        		button.parent().children('i').fadeOut();
 		            }
 		            else if(status=="error"){
 		            	throwError('Something is Wrong!!!','<p>Failed to send the Message!</p>');
-		            	button.prop("disabled",true);
+		            	button.prop("disabled",false);
+		        		button.parent().children('i').fadeOut();
 		            }
 		            else
 		            	console.log(status);
 		});
-		button.parent().children('i').fadeOut();
 	});
 })
 function throwError(title,messag){

@@ -23,6 +23,10 @@ var n={
 			message : "heeeeeeeeeeeha",
 			timeOut : 15000
 		};
+	var m={
+			title 	: "My Error",
+			message : "heeeeeeeeeeeha",
+		};
 	
 $(document).ready(function(){
 	$(document).on("click","nav", function(){
@@ -37,12 +41,15 @@ $(document).ready(function(){
 		case 2:
 			notification(k);
 			break;
-			notification(i);
 		case 3:
+			notification(i);
+			break;
+		case 4:
+			notification(m);
 			break;
 		}
 		counter++;
-		counter=counter%4;
+		counter=counter%5;
 	});
 
 })

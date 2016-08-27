@@ -7,7 +7,7 @@ $(document).ready(function(){
 		        {
 			email: $('form#contact-form input#inputEmail').val(),
 			subject: $('form#contact-form input#inputSubject').val(),
-			body: $('form#contact-form input#inputBody').val()
+			body: $('form#contact-form textarea#inputBody').val()
 		        },
 		        function(status){
 		            if(status=="success"){
@@ -23,7 +23,7 @@ $(document).ready(function(){
 		            else
 		            	console.log(status);
 		});
-		button.parent().children('i').fadeut();
+		button.parent().children('i').fadeOut();
 	});
 })
 function throwError(title,messag){

@@ -19,6 +19,7 @@
 		  <div class="form-group">
 		    <div class="col-sm-12">
 		      <button type="submit" id="send-button" class="btn btn-primary">Send</button>
+		      <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
 		    </div>
 		  </div>
 		</form>

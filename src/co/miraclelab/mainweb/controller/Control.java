@@ -70,6 +70,7 @@ public class Control extends MainControl {
 	@RequestMapping(value = { "/contact" }, method = RequestMethod.POST)
 	@ResponseBody
 	public String contactPageResponse() throws IOException {
+		Logger log=logService.getLog();
 		try{
 			Email email=new Email();
 			ArrayList<String> rec=new ArrayList<String>();
@@ -88,6 +89,7 @@ public class Control extends MainControl {
 			mailService.sendMail(email);
 			return "success";
 		} catch (Throwable e) {
+			log.error("error send email", e);
 			return "error";
 		}
 	}

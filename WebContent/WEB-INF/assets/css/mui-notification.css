@@ -2,19 +2,18 @@
 	width: 320px;
 	position: absolute;
 	z-index: 5000;
-	top: 70px;
+	top: 60px;
 	right: 0px;
 	padding-right: 40px;
 	padding-bottom: 20px;
-	overflow-x: hidden;
-	overflow-y: visible;
+	padding-top: 20px;
+	overflow: hidden;
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none;   /* Chrome/Safari/Opera */
 	-khtml-user-select: none;    /* Konqueror */
 	-moz-user-select: none;      /* Firefox */
 	-ms-user-select: none;       /* Internet Explorer/Edge */
 	user-select: none;
-
 }
 
 .mui-notifications div.panel {

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,12 +33,15 @@ import co.miraclelab.webframe.utilities.XMLService;
 @Controller
 public class Control extends MainControl {
 	
+
 	public Control(AppProperties properties, ServletContext servletContext, LogService logService,
 			EncryptService encryptService, XMLService xmlService, EmailService mailService, MongoService mongoService,
-			LayoutService layoutService, HttpServletRequest request, HttpServletResponse response) {		
+			LayoutService layoutService, VelocityEngine velocityEngine, HttpServletRequest request,
+			HttpServletResponse response) {
 		super(properties, servletContext, logService, encryptService, xmlService, mailService, mongoService, layoutService,
-				request, response);
+				velocityEngine, request, response);
 		mailService.initMailService();
+
 	}
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET) 

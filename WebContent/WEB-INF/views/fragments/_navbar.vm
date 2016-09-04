@@ -21,9 +21,8 @@
 		#foreach($myLink in $layoutService.getLinks())
 				<li><a href="$myLink.getHref()">$myLink.getLabel()</a></li>
 		#end
-		#foreach($myPanel in $layoutService.getPanels())
-			#parse($myPanel.path())
-		#end
+		
+		$layoutService.renderPanels()
 		$layoutService.up()
 
       </ul>
@@ -33,9 +32,8 @@
 		#foreach($myLink in $layoutService.getLinks())
 				<li><a href="$myLink.getHref()">$myLink.getLabel()</a></li>
 		#end
-		#foreach($myPanel in $layoutService.getPanels())
-			#parse($myPanel.path())
-		#end
+		
+		$layoutService.renderPanels()
 		$layoutService.up(2)
       </ul>
     </div><!-- /.navbar-collapse -->

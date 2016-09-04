@@ -36,6 +36,6 @@
   		<groupId>co.miraclelab</groupId>
 		<artifactId>WebFrame</artifactId>
 		<version>1.0</version>
-  	</dependency>
+  	</dependency> 
   </dependencies>
 </project>

@@ -33,15 +33,13 @@ import co.miraclelab.webframe.utilities.XMLService;
 @Controller
 public class Control extends MainControl {
 	
-
 	public Control(AppProperties properties, ServletContext servletContext, LogService logService,
 			EncryptService encryptService, XMLService xmlService, EmailService mailService, MongoService mongoService,
-			LayoutService layoutService, VelocityEngine velocityEngine, HttpServletRequest request,
+			LayoutService layoutService, VelocityEngine templateEngine, HttpServletRequest request,
 			HttpServletResponse response) {
 		super(properties, servletContext, logService, encryptService, xmlService, mailService, mongoService, layoutService,
-				velocityEngine, request, response);
+				templateEngine, request, response);
 		mailService.initMailService();
-
 	}
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET) 

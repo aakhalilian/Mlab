@@ -21,7 +21,7 @@
 		#foreach($myLink in $layoutService.getLinks())
 				<li><a href="$myLink.getHref()">$myLink.getLabel()</a></li>
 		#end
-		
+		$layoutService.renderLinks("<li>?</li>")
 		$layoutService.renderPanels()
 		$layoutService.up()
 
@@ -32,7 +32,7 @@
 		#foreach($myLink in $layoutService.getLinks())
 				<li><a href="$myLink.getHref()">$myLink.getLabel()</a></li>
 		#end
-		
+		$layoutService.renderLinks("<li>?</li>")
 		$layoutService.renderPanels()
 		$layoutService.up(2)
       </ul>

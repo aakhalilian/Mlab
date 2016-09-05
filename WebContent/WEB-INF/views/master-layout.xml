@@ -30,6 +30,13 @@
 		<label>About us</label>
 	</web-link>
 	
+	<web-link location="master.top.navbar.right" order="500" blank="false">
+		<link>#</link>
+		<title>About Miracle Lab</title>
+		<label>Time Link</label>
+		<condition>co.test.condition.SimpleCondition</condition>
+	</web-link>
+	
 	<web-link location="master.top.navbar.right" order="1" blank="false">
 		<link>contact</link>
 		<title>Contact Miracle Lab</title>

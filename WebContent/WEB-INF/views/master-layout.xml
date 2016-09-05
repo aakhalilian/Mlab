@@ -13,6 +13,10 @@
 		<template>fragments/_footer.vm</template>
 		<label>Footer</label>
 	</web-panel>
+	<web-panel location="master.bottom" order="500">
+		<template>fragments/_cloock.vm</template>
+		<context-provider>co.test.context.SimpleContextProvider</context-provider>
+	</web-panel>
 	
 	<web-link location="master.top.navbar.right.agile" order="525" blank="false">
 		<link>#</link>

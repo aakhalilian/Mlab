@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.miraclelab.webframe.controller.MainControl;
 import co.miraclelab.webframe.layoutservice.LayoutService;
+import co.miraclelab.webframe.model.User;
 import co.miraclelab.webframe.utilities.LogService;
-import co.miraclelab.webframe.utilities.MongoService;
 import co.miraclelab.webframe.utilities.AppProperties;
 import co.miraclelab.webframe.utilities.Email;
 import co.miraclelab.webframe.utilities.EmailService;
@@ -32,16 +33,14 @@ import co.miraclelab.webframe.utilities.XMLService;
 
 @Controller
 public class Control extends MainControl {
-	
-
 	public Control(AppProperties properties, ServletContext servletContext, LogService logService,
-			EncryptService encryptService, XMLService xmlService, EmailService mailService, MongoService mongoService,
-			LayoutService layoutService, VelocityEngine velocityEngine, HttpServletRequest request,
+			EncryptService encryptService, XMLService xmlService, EmailService mailService, MongoTemplate mongoTemplate,
+			LayoutService layoutService, VelocityEngine templateEngine, HttpServletRequest request,
 			HttpServletResponse response) {
-		super(properties, servletContext, logService, encryptService, xmlService, mailService, mongoService, layoutService,
-				velocityEngine, request, response);
+		super(properties, servletContext, logService, encryptService, xmlService, mailService, mongoTemplate, layoutService,
+				templateEngine, request, response);
+		
 		mailService.initMailService();
-
 	}
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET) 
@@ -52,6 +51,9 @@ public class Control extends MainControl {
 	@RequestMapping(value = { "/main" }, method = RequestMethod.GET)
 	public String welcomePage(Model model) throws IOException {
 		ServiceAccessor.modelDispatch(model);
+		User user=new User();
+		user.setUsername("kentaki");
+		mongoTemplate.save(user);
 		model.addAttribute("pageTitle","Miracle Lab Main"); 
 		return "main";
 		

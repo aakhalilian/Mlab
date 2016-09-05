@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import co.miraclelab.webframe.controller.MainControl;
 import co.miraclelab.webframe.layoutservice.LayoutService;
 import co.miraclelab.webframe.model.User;
+import co.miraclelab.webframe.model.UserInfo;
 import co.miraclelab.webframe.utilities.LogService;
 import co.miraclelab.webframe.utilities.AppProperties;
 import co.miraclelab.webframe.utilities.Email;
@@ -51,8 +52,11 @@ public class Control extends MainControl {
 	@RequestMapping(value = { "/main" }, method = RequestMethod.GET)
 	public String welcomePage(Model model) throws IOException {
 		ServiceAccessor.modelDispatch(model);
+		UserInfo userInfo=new UserInfo();
+		userInfo.setEmail("a@q.com");
 		User user=new User();
-		user.setUsername("kentaki");
+		user.setUsername("kentaki2");
+		user.setUserInfo(userInfo);
 		mongoTemplate.save(user);
 		model.addAttribute("pageTitle","Miracle Lab Main"); 
 		return "main";

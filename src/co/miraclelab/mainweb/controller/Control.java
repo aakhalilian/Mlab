@@ -1,10 +1,8 @@
 package co.miraclelab.mainweb.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.mail.MessagingException;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import co.miraclelab.webframe.controller.MainControl;
 import co.miraclelab.webframe.layoutservice.LayoutService;
-import co.miraclelab.webframe.model.User;
-import co.miraclelab.webframe.model.UserInfo;
 import co.miraclelab.webframe.utilities.LogService;
 import co.miraclelab.webframe.utilities.AppProperties;
 import co.miraclelab.webframe.utilities.Email;
@@ -52,12 +47,6 @@ public class Control extends MainControl {
 	@RequestMapping(value = { "/main" }, method = RequestMethod.GET)
 	public String welcomePage(Model model) throws IOException {
 		ServiceAccessor.modelDispatch(model);
-		UserInfo userInfo=new UserInfo();
-		userInfo.setEmail("a@q.com");
-		User user=new User();
-		user.setUsername("kentaki2");
-		user.setUserInfo(userInfo);
-		mongoTemplate.save(user);
 		model.addAttribute("pageTitle","Miracle Lab Main"); 
 		return "main";
 		

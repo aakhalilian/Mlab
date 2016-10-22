@@ -13,10 +13,6 @@
 		<template>fragments/_footer.vm</template>
 		<label>Footer</label>
 	</web-panel>
-	<web-panel location="master.bottom" order="500">
-		<template>fragments/_cloock.vm</template>
-		<context-provider>co.test.context.SimpleContextProvider</context-provider>
-	</web-panel>
 	
 	<web-link location="master.top.navbar.right.agile" order="525" blank="false">
 		<link>#</link>
@@ -33,14 +29,7 @@
 		<title>About Miracle Lab</title>
 		<label>About us</label>
 	</web-link>
-	
-	<web-link location="master.top.navbar.right" order="500" blank="false">
-		<link>#</link>
-		<title>About Miracle Lab</title>
-		<label>Time Link</label>
-		<condition>co.test.condition.SimpleCondition</condition>
-	</web-link>
-	
+		
 	<web-link location="master.top.navbar.right" order="1" blank="false">
 		<link>contact</link>
 		<title>Contact Miracle Lab</title>

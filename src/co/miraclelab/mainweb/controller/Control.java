@@ -74,7 +74,6 @@ public class Control extends MainControl {
 			Email email=new Email();
 			ArrayList<String> rec=new ArrayList<String>();
 			rec.add(request.getParameter("email"));
-			rec.add("support@miraclelab.co");
 			email.setReciepients(rec);
 			
 			email.setSubject(request.getParameter("subject"));

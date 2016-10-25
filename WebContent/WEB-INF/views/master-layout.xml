@@ -24,7 +24,7 @@
 		<label>Miracle Tools</label>
 	</web-link>	
 	
-	<web-link location="master.top.navbar.right" order="1000" blank="false">
+	<web-link location="master.top.navbar.right" order="2" blank="false">
 		<link>about</link>
 		<title>About Miracle Lab</title>
 		<label>About us</label>
@@ -34,6 +34,12 @@
 		<link>contact</link>
 		<title>Contact Miracle Lab</title>
 		<label>Contact us</label>
+	</web-link>
+	
+	<web-link location="master.top.navbar.right" order="3" blank="false">
+		<link>https://miraclelab.atlassian.net/wiki/spacedirectory/view.action</link>
+		<title>Miracle Lab Wiki</title>
+		<label>Wiki</label>
 	</web-link>
 	
 </layout-map>
